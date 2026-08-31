@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Sofia — What My Heart Has Been Trying to Say ♡</title>
+<meta name="theme-color" content="#0b1633">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Parisienne&display=swap');
+
+:root{
+  --navy:#071126; --blue:#183b70; --ice:#bfe7ff; --sky:#78bde8;
+  --rose:#f3a6bd; --pink:#ffcad9; --wine:#8e385e; --lav:#b9a7e8;
+  --white:#f8fbff; --muted:#c9d5e8; --line:rgba(191,231,255,.25);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ margin:0; color:var(--white); background:
+ radial-gradient(circle at 15% 10%,rgba(120,189,232,.20),transparent 28%),
+ radial-gradient(circle at 85% 12%,rgba(243,166,189,.18),transparent 30%),
+ radial-gradient(circle at 50% 55%,rgba(142,56,94,.14),transparent 35%),
+ linear-gradient(135deg,#050b1c 0%,#0a1732 38%,#101b3b 70%,#080c20 100%);
+ font-family:Inter,sans-serif; overflow-x:hidden;
+}
+body:before{
+ content:""; position:fixed; inset:0; pointer-events:none; opacity:.13;
+ background-image:linear-gradient(rgba(191,231,255,.14) 1px,transparent 1px),
+ linear-gradient(90deg,rgba(191,231,255,.14) 1px,transparent 1px);
+ background-size:44px 44px;
+ mask-image:linear-gradient(to bottom,black,transparent 88%);
+}
+canvas#stars{position:fixed;inset:0;z-index:-1;opacity:.7}
+nav{
+ position:fixed;top:0;left:0;right:0;z-index:20;padding:16px 5%;
+ display:flex;justify-content:space-between;align-items:center;
+ background:rgba(5,11,28,.55);backdrop-filter:blur(18px);
+ border-bottom:1px solid var(--line)
+}
+.logo{font-family:Parisienne,cursive;font-size:28px;color:var(--pink)}
+nav a{color:#dcecff;text-decoration:none;font-size:12px;margin-left:18px;letter-spacing:.12em}
+section{max-width:1050px;margin:auto;padding:105px 24px 80px}
+.hero{min-height:100vh;display:grid;place-items:center;text-align:center;padding-top:130px}
+.eyebrow{letter-spacing:.35em;text-transform:uppercase;color:var(--ice);font-size:11px}
+h1{
+ font-family:"Cormorant Garamond",serif;font-size:clamp(58px,10vw,112px);line-height:.83;
+ margin:24px 0 18px; font-weight:600;
+ background:linear-gradient(110deg,#d8f1ff,#fff,#ffc7d8,#b8dfff);
+ -webkit-background-clip:text;color:transparent;
+ text-shadow:0 0 45px rgba(120,189,232,.18)
+}
+.subtitle{max-width:720px;margin:auto;color:var(--muted);font-size:16px;line-height:1.9}
+.scroll{margin-top:45px;color:var(--pink);font-size:12px;letter-spacing:.22em}
+.card{
+ position:relative; padding:42px; margin:28px 0; border:1px solid var(--line);
+ border-radius:28px; background:linear-gradient(145deg,rgba(19,48,88,.52),rgba(64,20,53,.30));
+ box-shadow:0 20px 80px rgba(0,0,0,.25),inset 0 1px rgba(255,255,255,.08);
+ backdrop-filter:blur(12px)
+}
+.card:after{content:"♡";position:absolute;right:26px;top:18px;color:rgba(255,202,217,.22);font-size:42px}
+h2{font-family:"Cormorant Garamond",serif;font-size:46px;margin:0 0 18px;color:#f8e6ed}
+h3{font-family:"Cormorant Garamond",serif;font-size:31px;color:var(--ice);margin-bottom:10px}
+p{line-height:1.95;color:#d9e2f1;font-size:15px}
+em{color:var(--pink)}
+.quote{
+ font-family:"Cormorant Garamond",serif;font-size:30px;line-height:1.35;text-align:center;
+ color:#e5f5ff;padding:30px 12px
+}
+.timeline{border-left:1px solid rgba(191,231,255,.28);padding-left:28px}
+.point{position:relative;margin:32px 0}
+.point:before{content:"";position:absolute;left:-34px;top:8px;width:9px;height:9px;border-radius:50%;
+ background:var(--pink);box-shadow:0 0 20px var(--pink)}
+.blueprint{
+ margin:35px auto; max-width:650px; aspect-ratio:1/1; position:relative; display:grid;place-items:center;
+ border:1px solid rgba(120,189,232,.35);border-radius:30px;
+ background:radial-gradient(circle,rgba(120,189,232,.10),transparent 55%);
+ overflow:hidden
+}
+.blueprint:before,.blueprint:after{content:"";position:absolute;background:rgba(120,189,232,.18)}
+.blueprint:before{width:100%;height:1px}.blueprint:after{height:100%;width:1px}
+.heart{
+ width:47%;height:47%; transform:rotate(-45deg); position:relative;
+ border-left:3px solid #8bd1f4;border-bottom:3px solid #8bd1f4;
+ filter:drop-shadow(0 0 14px rgba(120,189,232,.65));
+}
+.heart:before,.heart:after{content:"";position:absolute;width:100%;height:100%;border:3px solid #8bd1f4;border-radius:50%}
+.heart:before{top:-50%;left:0}.heart:after{top:0;left:50%}
+.heartText{position:absolute;z-index:3;text-align:center;transform:rotate(0deg)}
+.heartText strong{display:block;font-family:Parisienne,cursive;font-size:54px;color:#ffd4e0;text-shadow:0 0 22px rgba(243,166,189,.8)}
+.heartText span{font-size:9px;letter-spacing:.28em;color:#bfe7ff}
+.stamp{font-size:10px;letter-spacing:.2em;color:#8bd1f4;border:1px solid rgba(139,209,244,.4);padding:8px 12px;display:inline-block}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.small{font-size:13px;color:#b8c7dc}
+.final{
+ text-align:center; padding-bottom:140px
+}
+.final .big{font-family:Parisienne,cursive;font-size:clamp(44px,8vw,82px);color:#ffcbd9}
+.heartline{font-size:36px;letter-spacing:10px;color:#8bd1f4;margin:25px 0}
+footer{text-align:center;padding:30px;color:#8192ab;font-size:11px;letter-spacing:.14em}
+.reveal{opacity:0;transform:translateY(22px);transition:1s ease}.reveal.show{opacity:1;transform:none}
+@media(max-width:700px){nav .links{display:none}.card{padding:28px 22px}.grid{grid-template-columns:1fr}h2{font-size:39px}.heartText strong{font-size:40px}}
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+
+<nav>
+ <div class="logo">For Sofia ♡</div>
+ <div class="links">
+  <a href="#why">WHY</a><a href="#overthinking">MY MIND</a><a href="#jealousy">JEALOUSY</a><a href="#promise">PROMISE</a>
+ </div>
+</nav>
+
+<section class="hero">
+ <div>
+  <div class="eyebrow">A little piece of my heart</div>
+  <h1>Sofia.</h1>
+  <p class="subtitle">
+   This isn't a performance. It isn't a test. It isn't something you have to answer.
+   It's simply me putting into words what has been living quietly, loudly, endlessly in my heart.
+  </p>
+  <div class="scroll">↓ SCROLL SLOWLY ↓</div>
+ </div>
+</section>
+
+<section id="why" class="reveal">
+ <div class="card">
+  <span class="stamp">01 — WHY I FELL</span>
+  <h2>It started unexpectedly.</h2>
+  <p>
+   We began as two people who happened to find each other online. I remember that first feeling:
+   I couldn't stop thinking about you. At first, I didn't even understand why. There was simply
+   something about you that stayed in my mind.
+  </p>
+  <p>
+   Then I started discovering <em>you</em> — your heart, your mind, your humour, your dreams,
+   your interests, your little ways of thinking, your imperfections, your strengths and your
+   softness. The more I learned, the less it felt like I was falling for an idea of you.
+   I was falling for <em>Sofia herself</em>.
+  </p>
+  <p>
+   Even when my feelings were difficult to say, I cared about your happiness. I wanted you to be
+   okay. I wanted you to feel valued. And somehow, through conversations, distance, memories,
+   mistakes, growth and all the ordinary little moments between us, you became part of my everyday life.
+  </p>
+  <div class="quote">“I didn't fall in love with a perfect person. I fell in love with a real person — you.”</div>
+ </div>
+
+ <div class="card">
+  <span class="stamp">02 — WHAT I LOVE</span>
+  <h2>Not just what I see.</h2>
+  <p>
+   Yes, I think you're beautiful. The most beautiful, gorgeous, amazing, pretty, cute and
+   unbelievably attractive girl in my world. But that isn't the foundation of why I love you.
+  </p>
+  <p>
+   I fell in love with what is <em>inside</em> you: your heart, your soul, your character,
+   your weaknesses and your strength, your mind and your intelligence, your thoughtfulness,
+   your kindness, your heart of gold, your love — everything that makes you <em>Sofia</em>.
+  </p>
+  <p>
+   I don't want a polished version of you. I don't want you to have to become someone else to
+   deserve love. I love the person behind everything: the person with real emotions, real
+   imperfections, real dreams, real fears, real strengths and a heart that is uniquely yours.
+  </p>
+ </div>
+
+ <div class="card">
+  <span class="stamp">03 — WHY YOU MAY FEEL LOVED</span>
+  <h2>Because I choose to value you.</h2>
+  <p>
+   I think one reason our connection became so meaningful is that I try to make it intentional.
+   I notice your feelings. I listen. I try to learn from my mistakes. I want you to feel safe,
+   comfortable and respected with me.
+  </p>
+  <p>
+   Distance hasn't made you feel smaller in my life. If anything, it taught me how much a person
+   can matter even when they're far away. The letters, the little creations, the memories and
+   the effort are simply different ways of saying the same thing:
+   <em>you matter to me.</em>
+  </p>
+ </div>
+</section>
+
+<section class="reveal">
+ <div class="blueprint">
+  <div class="heart"></div>
+  <div class="heartText">
+   <strong>Sofia</strong>
+   <span>THE HEART AT THE CENTRE OF THIS STORY</span>
+  </div>
+ </div>
+ <p style="text-align:center" class="small">HEART BLUEPRINT // DESIGNED WITH TOO MUCH LOVE ♡</p>
+</section>
+
+<section id="overthinking" class="reveal">
+ <div class="card">
+  <span class="stamp">04 — THE OVERTHINKER IN ME</span>
+  <h2>My mind doesn't always know how to be quiet.</h2>
+  <p>
+   I need you to know something honestly: <em>I am a real overthinker.</em>
+   You can be on my mind in the morning, at night, in the middle of an ordinary moment,
+   and in the quiet moments when my brain suddenly decides to replay everything.
+  </p>
+  <p>
+   Sometimes I think about what you meant, what you're feeling, whether you're okay, whether
+   I said something wrong, whether I could have handled something better. My mind can run far
+   ahead of reality.
+  </p>
+  <p>
+   That doesn't mean I don't trust you. It means my brain sometimes turns caring into a hundred
+   questions. I'm learning to slow those questions down, communicate instead of assuming, and
+   remember that thoughts are not automatically facts.
+  </p>
+ </div>
+</section>
+
+<section id="jealousy" class="reveal">
+ <div class="card">
+  <span class="stamp">05 — THE JEALOUS PART OF ME</span>
+  <h2>I'm honest about this too.</h2>
+  <p>
+   I can get jealous very easily. Even something as simple as Yuria talking to you can sometimes
+   trigger that feeling in me. And yes, other people talking to you can do it too.
+  </p>
+  <p>
+   But I want to make something extremely clear: <em>my jealousy is not a rule for you.</em>
+   I will never use it as an excuse to control you, isolate you, tell you who you can speak to,
+   or act possessive over your life.
+  </p>
+  <p>
+   Jealousy is a feeling I have to manage — not something you have to obey. You deserve your
+   friendships, your space, your choices and your freedom. I want to trust you, respect you,
+   listen to you and communicate honestly rather than turn a feeling into control.
+  </p>
+  <div class="quote">“I can feel jealous and still choose trust, respect and freedom.”</div>
+ </div>
+
+ <div class="card">
+  <span class="stamp">06 — WHY RUBEN HIT A NERVE</span>
+  <h2>It wasn't really about you.</h2>
+  <p>
+   Ruben triggered something very specific in me. From what I understood at the time, there were
+   messages and behaviour that made me worry about his intentions and about whether you were being
+   treated with the respect you deserved.
+  </p>
+  <p>
+   I had also heard about some of the things you were struggling with and the way you could doubt
+   your own worth. That made my protective side react strongly. I didn't want someone to make you
+   feel smaller, reduce you to your appearance, or treat your kindness as something to take
+   advantage of.
+  </p>
+  <p>
+   But I also learned something important: <em>protecting someone doesn't mean owning them.</em>
+   You are your own person. You get to make your own decisions. My job is not to decide your
+   relationships for you. My job is to respect your choices, trust you, communicate with you,
+   and be someone who treats you with care.
+  </p>
+ </div>
+</section>
+
+<section id="promise" class="reveal">
+ <div class="card">
+  <span class="stamp">07 — WHAT I WANT YOU TO FEEL</span>
+  <h2>More than anything, I want you to be happy.</h2>
+  <div class="grid">
+   <div>
+    <h3>Respect</h3>
+    <p>Your boundaries, your choices, your friendships, your time and your individuality matter.</p>
+   </div>
+   <div>
+    <h3>Safety</h3>
+    <p>I want our relationship to feel like a place where you can breathe, speak honestly and be yourself.</p>
+   </div>
+   <div>
+    <h3>Listening</h3>
+    <p>I want to understand you instead of simply waiting for my turn to speak.</p>
+   </div>
+   <div>
+    <h3>Care</h3>
+    <p>I want to be considerate of your feelings and remember that your happiness matters too.</p>
+   </div>
+  </div>
+  <p>
+   You are more than enough. You don't need to prove your worth to me. You don't have to be
+   perfect. You don't have to perform happiness. You just have to be <em>you</em>.
+  </p>
+ </div>
+</section>
+
+<section class="reveal">
+ <div class="card">
+  <span class="stamp">08 — THE SIMPLEST TRUTH</span>
+  <h2>Why I love you.</h2>
+  <p>
+   Because somewhere along the way, knowing you stopped being a small part of my life and became
+   something woven through it. I love the person you are, the person you're becoming, and the
+   little pieces of yourself you let me see.
+  </p>
+  <p>
+   I don't love you because you are flawless. I love you because you are <em>you</em>.
+   Sofia for who she really is.
+  </p>
+  <p>
+   And when my overthinking gets loud, when jealousy appears, when distance feels difficult,
+   or when I don't have the perfect words, I want my actions to come back to the same foundation:
+   love without possession, care without control, honesty without pressure, and respect without conditions.
+  </p>
+ </div>
+</section>
+
+<section class="final reveal">
+ <div class="heartline">♡ · ♡ · ♡</div>
+ <div class="big">You don't have to respond.</div>
+ <p>
+   Seriously. You don't owe this website a reply. You don't have to acknowledge every word,
+   explain anything, or find the perfect response.
+ </p>
+ <p>
+   I'm not making this to impress you. I'm not asking for anything back.
+   I made it because sometimes my heart has more to say than a message can hold.
+ </p>
+ <p>
+   This little corner of the internet is simply a reflection of what is already in my heart.
+   A place where I could put the thoughts, gratitude, love, mistakes, lessons and feelings
+   into one story — for you.
+ </p>
+ <h2 style="margin-top:55px">With all my heart,</h2>
+ <div class="big">Shaun ♡</div>
+ <p class="small">For Sofia — not a demand. Not a performance. Just love, written down.</p>
+</section>
+
+<footer>MADE WITH LOVE · BLUEPRINTED IN HEARTLIGHT · ♡</footer>
+
+<script>
+const canvas=document.getElementById('stars'),ctx=canvas.getContext('2d');
+let W,H,stars=[];
+function resize(){W=canvas.width=innerWidth;H=canvas.height=innerHeight;stars=Array.from({length:130},()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.5+.2,a:Math.random()}))}
+function draw(){
+ ctx.clearRect(0,0,W,H);
+ stars.forEach(s=>{s.a+=.005;ctx.globalAlpha=.25+.5*Math.abs(Math.sin(s.a));ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle="#dff5ff";ctx.fill()});
+ requestAnimationFrame(draw)
+}
+addEventListener('resize',resize);resize();draw();
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(x=>io.observe(x));
+</script>
+</body>
+</html>
